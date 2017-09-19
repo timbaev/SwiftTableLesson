@@ -18,6 +18,14 @@
 Т.е. инфу про пользователя типа Имя, аватар и остальное не трогаете, перезадаете только то, что внутри секций.  
 По тапу на ячейки ничего не должно происходить.
 
+### Скрины того, что примерно нужно сделать:
+
+<img src="https://raw.githubusercontent.com/ZalyalovIldar/SwiftTableLesson/master/1.jpg" alt="Demo" />
+
+<img src="https://raw.githubusercontent.com/ZalyalovIldar/SwiftTableLesson/master/2.jpg" alt="Demo" />
+
+<img src="https://raw.githubusercontent.com/ZalyalovIldar/SwiftTableLesson/master/3.jpg" alt="Demo" />
+
 ### Некоторые подсказки: 
 Используйте group стиль таблицы, чтобы дизайн был похож на вк. 
 В одной секции очевидно один тип ячеек. 
