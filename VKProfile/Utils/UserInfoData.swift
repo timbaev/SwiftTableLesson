@@ -36,6 +36,8 @@ class UserInfoData {
         let files = Int(arc4random_uniform(maxRandomValue))
         let avatar = profilePhotos[Int(arc4random_uniform(UInt32(profilePhotos.count - 1)))]
         
-        return User(name: name, surname: surname, onlineStatus: online, age: age, city: city, friends: friends, followers: [User](), photos: photos, groups: groups, videos: videos, audios: audios, presents: presents, files: files, profileImage: avatar)
+        let info = UserInfo(status: "I ❤️ Swift programming")
+        
+        return User(name: name, surname: surname, onlineStatus: online, age: age, city: city, friends: friends, followers: [User](), photos: photos, groups: groups, videos: videos, audios: audios, presents: presents, files: files, profileImage: avatar, info: info)
     }
 }

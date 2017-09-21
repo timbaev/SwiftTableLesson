@@ -22,6 +22,8 @@
 		CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AC1F6EA7B10093AA92 /* User.swift */; };
 		CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */; };
 		CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104371F7439A200A48BCD /* DeclinationWord.swift */; };
+		CBD104431F744D7400A48BCD /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104411F744D7400A48BCD /* StatusTableViewCell.swift */; };
+		CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		CB9B22AC1F6EA7B10093AA92 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
 		CBD104371F7439A200A48BCD /* DeclinationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclinationWord.swift; sourceTree = "<group>"; };
+		CBD104411F744D7400A48BCD /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 			children = (
 				CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */,
 				CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */,
+				CBD104411F744D7400A48BCD /* StatusTableViewCell.swift */,
+				CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB5A1A801F66D55500C1971E /* LaunchScreen.storyboard in Resources */,
+				CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */,
 				CB5A1A7D1F66D55500C1971E /* Assets.xcassets in Resources */,
 				CB5A1A7B1F66D55500C1971E /* Main.storyboard in Resources */,
 				CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */,
@@ -204,6 +211,7 @@
 				CB42F4D91F730BA000871971 /* EndingWord.swift in Sources */,
 				CB42F4D21F73035400871971 /* InfoTableViewController.swift in Sources */,
 				CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */,
+				CBD104431F744D7400A48BCD /* StatusTableViewCell.swift in Sources */,
 				CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */,
 				CB5A1A781F66D55500C1971E /* ViewController.swift in Sources */,
 				CB5A1A761F66D55500C1971E /* AppDelegate.swift in Sources */,

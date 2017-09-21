@@ -31,4 +31,10 @@ struct User {
     var presents: Int
     var files: Int
     var profileImage: UIImage
+    
+    var info: UserInfo
+}
+
+struct UserInfo {
+    var status: String
 }
