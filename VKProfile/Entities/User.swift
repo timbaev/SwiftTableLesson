@@ -8,10 +8,10 @@
 
 import UIKit
 
-enum OnlineStatus {
-    case offline
-    case mobile
-    case computer
+enum OnlineStatus: String {
+    case offline = "Offline"
+    case mobile = "Online (Моб.)"
+    case computer = "Online"
     
     static let statuses = [offline, mobile, computer]
 }

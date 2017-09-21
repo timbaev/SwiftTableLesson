@@ -15,17 +15,6 @@ fileprivate enum BorderPosition {
     case left
 }
 
-fileprivate enum InfoType: String {
-    case friends = "друг"
-    case followers = "подпичсик"
-    case groups = "группа"
-    case photos = "фото"
-    case videos = "видео"
-    case audios = "аудио"
-    case presents = "подарок"
-    case files = "файл"
-}
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var infoScrollView: UIScrollView!
@@ -110,8 +99,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-        avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2
-        avatarImage.clipsToBounds = true
+        avatarImage.roundCorners()
         self.view.layoutIfNeeded()
     }
     
@@ -125,53 +113,48 @@ class ViewController: UIViewController {
     }
     
     private func setLabels() {
-        let onlineMobile = "Online (Моб.)"
-        let offline = "Offlien"
-        let online = "Online"
-        let year = "год"
-        let years = "лет"
+        let photo = "фото"
+        let audio = "аудио"
+        let video = "видео"
         let seperator = ","
-        let photosText = "фотографии"
         
         self.title = user.name
         nameLabel.text = user.name + " " + user.surname
-        
-        switch user.onlineStatus {
-        case .offline:
-            onlineStatusLabel.text = offline
-            break
-        case .mobile:
-            onlineStatusLabel.text = onlineMobile
-            break
-        case .computer:
-            onlineStatusLabel.text = online
-            break
-        }
+        onlineStatusLabel.text = user.onlineStatus.rawValue
         
         ageLabel.text = String(user.age)
-        if (user.age == 1) {
-            yearsLabel.text = year
-        } else {
-            yearsLabel.text = user.age > 4 ? years : year + "а"
-        }
-        yearsLabel.text = yearsLabel.text! + seperator
+        yearsLabel.text = EndingWord.getCorrectEnding(with: user.age, and: DeclinationWordDictionary.age) + seperator
         cityLabel.text = user.city
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
-        let attributes: [String: Any] = [NSParagraphStyleAttributeName: paragraph]
-        setTitle(with: infoButtons[0], type: .friends, count: user.friends, attributes: attributes)
-        setTitle(with: infoButtons[1], type: .followers, count: user.followers.count, attributes: attributes)
-        setTitle(with: infoButtons[2], type: .groups, count: user.groups, attributes: attributes)
-        setTitle(with: infoButtons[3], type: .photos, count: user.photos.count, attributes: attributes)
-        setTitle(with: infoButtons[4], type: .videos, count: user.videos, attributes: attributes)
-        setTitle(with: infoButtons[5], type: .audios, count: user.audios, attributes: attributes)
-        setTitle(with: infoButtons[6], type: .presents, count: user.presents, attributes: attributes)
-        setTitle(with: infoButtons[7], type: .files, count: user.files, attributes: attributes)
+        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey(rawValue: NSAttributedStringKey.paragraphStyle.rawValue): paragraph]
+        setTitle(with: infoButtons[0], count: user.friends, declinationWord: DeclinationWordDictionary.friend, attributes: attributes)
+        setTitle(with: infoButtons[1], count: user.followers.count, declinationWord: DeclinationWordDictionary.follower, attributes: attributes)
+        setTitle(with: infoButtons[2], count: user.groups, declinationWord: DeclinationWordDictionary.group, attributes: attributes)
+        setTitle(with: infoButtons[3], count: user.photos.count, word: photo, attributes: attributes)
+        setTitle(with: infoButtons[4], count: user.videos, word: video, attributes: attributes)
+        setTitle(with: infoButtons[5], count: user.audios, word: audio, attributes: attributes)
+        setTitle(with: infoButtons[6], count: user.presents, declinationWord: DeclinationWordDictionary.present, attributes: attributes)
+        setTitle(with: infoButtons[7], count: user.files, declinationWord: DeclinationWordDictionary.file, attributes: attributes)
         
-        photosButton.setTitle("\(user.photos.count) " + photosText, for: .normal)
+        let photoCount = user.photos.count
+        let photoTitle = EndingWord.getCorrectEnding(with: photoCount, and: DeclinationWordDictionary.photograph)
+        photosButton.setTitle("\(photoCount) " + photoTitle, for: .normal)
+        
         photos.enumerated().forEach{ $0.element.image = user.photos[$0.offset] }
         avatarImage.image = user.profileImage
+    }
+    
+    private func setTitle(with button: UIButton, count: Int, declinationWord: DeclinationWord, attributes: [NSAttributedStringKey : Any]) {
+        let title = EndingWord.getCorrectEnding(with: count, and: declinationWord)
+        let attrString = NSAttributedString(string: "\(count)" + "\n" + title, attributes: attributes)
+        button.setAttributedTitle(attrString, for: .normal)
+    }
+    
+    private func setTitle(with button: UIButton, count: Int, word: String, attributes: [NSAttributedStringKey : Any]) {
+        let attrString = NSAttributedString(string: "\(count)" + "\n" + word, attributes: attributes)
+        button.setAttributedTitle(attrString, for: .normal)
     }
     
     @IBAction func onInfoClick(_ sender: UIButton) {
@@ -184,78 +167,31 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setTitle(with button: UIButton, type: InfoType, count: Int, attributes: [String : Any]) {
-        var title = type.rawValue
-        let friends = "друзей"
-        let group = "групп"
-        let groups = "группы"
-        let endingA = "а"
-        let endingOV = "ов"
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let infoIdentifier = "infoSegue"
+        let followersIdentifier = "followersSegue"
         
-        switch type {
-        case .friends:
-            if (count % 10 > 4) {
-                title = friends
-            } else if (count % 10 != 1) {
-                title += endingA
-            }
-            break
-        case .followers:
-            if (count % 10 > 4) {
-                title += endingOV
-            } else if (count % 10 != 1) {
-                title += endingA
-            }
-            break
-        case .groups:
-            if (count % 10 > 4) {
-                title = group
-            }
-            else if (count % 10 != 1) {
-                title = groups
-            }
-            break
-        case .presents:
-            if (count % 10 > 4) {
-                title += endingOV
-            } else if (count % 10 != 1) {
-                title += endingA
-            }
-            break
-        case .files:
-            if (count % 10 > 4) {
-                title += endingOV
-            } else if (count % 10 != 1) {
-                title += endingA
-            }
-            break
-        default:
-            break
+        if (segue.identifier == followersIdentifier) {
+            let followerTVC = segue.destination as! FollowersTableViewController
+            followerTVC.followers = user.followers
+        } else if (segue.identifier == infoIdentifier) {
+            let backItem = UIBarButtonItem()
+            self.navigationItem.backBarButtonItem = backItem
+            
+            let infoTVC = segue.destination as! InfoTableViewController
+            infoTVC.user = user
         }
         
-        let attrString = NSAttributedString(string: "\(count)" + "\n" + title, attributes: attributes)
-        button.setAttributedTitle(attrString, for: .normal)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let followerTVC = segue.destination as! FollowersTableViewController
-        followerTVC.followers = user.followers
     }
     
 }
 
-//extension to create color from HEX
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(red: (rgb >> 16) & 0xFF, green: (rgb >> 8) & 0xFF, blue: rgb & 0xFF)
-    }
-}
+
+
+
+
+
+
+
+
 

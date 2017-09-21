@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB42F4D21F73035400871971 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42F4D11F73035400871971 /* InfoTableViewController.swift */; };
+		CB42F4D51F73048900871971 /* ImageRounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42F4D41F73048900871971 /* ImageRounder.swift */; };
+		CB42F4D71F7304ED00871971 /* ColorRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42F4D61F7304ED00871971 /* ColorRGB.swift */; };
+		CB42F4D91F730BA000871971 /* EndingWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42F4D81F730BA000871971 /* EndingWord.swift */; };
 		CB5A1A761F66D55500C1971E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5A1A751F66D55500C1971E /* AppDelegate.swift */; };
 		CB5A1A781F66D55500C1971E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5A1A771F66D55500C1971E /* ViewController.swift */; };
 		CB5A1A7B1F66D55500C1971E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5A1A791F66D55500C1971E /* Main.storyboard */; };
@@ -17,9 +21,14 @@
 		CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */; };
 		CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AC1F6EA7B10093AA92 /* User.swift */; };
 		CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */; };
+		CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104371F7439A200A48BCD /* DeclinationWord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB42F4D11F73035400871971 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		CB42F4D41F73048900871971 /* ImageRounder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRounder.swift; sourceTree = "<group>"; };
+		CB42F4D61F7304ED00871971 /* ColorRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRGB.swift; sourceTree = "<group>"; };
+		CB42F4D81F730BA000871971 /* EndingWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingWord.swift; sourceTree = "<group>"; };
 		CB5A1A721F66D55500C1971E /* VKProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5A1A751F66D55500C1971E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5A1A771F66D55500C1971E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +41,7 @@
 		CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
 		CB9B22AC1F6EA7B10093AA92 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
+		CBD104371F7439A200A48BCD /* DeclinationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclinationWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +74,56 @@
 		CB5A1A741F66D55500C1971E /* VKProfile */ = {
 			isa = PBXGroup;
 			children = (
+				CBD104401F743C0E00A48BCD /* Controllers */,
+				CBD1043F1F743BC400A48BCD /* Cells */,
+				CBD1043D1F743B8000A48BCD /* Entities */,
+				CBD1043C1F743B5800A48BCD /* Utils */,
 				CB5A1A751F66D55500C1971E /* AppDelegate.swift */,
-				CB5A1A771F66D55500C1971E /* ViewController.swift */,
 				CB5A1A791F66D55500C1971E /* Main.storyboard */,
 				CB5A1A7C1F66D55500C1971E /* Assets.xcassets */,
 				CB5A1A7E1F66D55500C1971E /* LaunchScreen.storyboard */,
 				CB5A1A811F66D55500C1971E /* Info.plist */,
-				CB9B22AC1F6EA7B10093AA92 /* User.swift */,
+			);
+			path = VKProfile;
+			sourceTree = "<group>";
+		};
+		CBD1043C1F743B5800A48BCD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CBD104371F7439A200A48BCD /* DeclinationWord.swift */,
 				CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */,
-				CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */,
+				CB42F4D41F73048900871971 /* ImageRounder.swift */,
+				CB42F4D61F7304ED00871971 /* ColorRGB.swift */,
+				CB42F4D81F730BA000871971 /* EndingWord.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CBD1043D1F743B8000A48BCD /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CB9B22AC1F6EA7B10093AA92 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		CBD1043F1F743BC400A48BCD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */,
 				CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */,
 			);
-			path = VKProfile;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CBD104401F743C0E00A48BCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB5A1A771F66D55500C1971E /* ViewController.swift */,
+				CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */,
+				CB42F4D11F73035400871971 /* InfoTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,12 +153,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "iOS Lab ITIS";
 				TargetAttributes = {
 					CB5A1A711F66D55500C1971E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = W56K4E4L5F;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,12 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB42F4D91F730BA000871971 /* EndingWord.swift in Sources */,
+				CB42F4D21F73035400871971 /* InfoTableViewController.swift in Sources */,
 				CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */,
+				CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */,
 				CB5A1A781F66D55500C1971E /* ViewController.swift in Sources */,
 				CB5A1A761F66D55500C1971E /* AppDelegate.swift in Sources */,
 				CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */,
+				CB42F4D71F7304ED00871971 /* ColorRGB.swift in Sources */,
 				CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */,
 				CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */,
+				CB42F4D51F73048900871971 /* ImageRounder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +247,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -202,7 +257,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -244,7 +303,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -252,7 +313,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -286,7 +351,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.timbaev.VKProfile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -299,7 +365,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.timbaev.VKProfile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

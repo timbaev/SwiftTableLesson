@@ -16,8 +16,7 @@ class FollowerTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width / 2
-        avatarImageView.clipsToBounds = true
+        avatarImageView.roundCorners()
     }
 
     
