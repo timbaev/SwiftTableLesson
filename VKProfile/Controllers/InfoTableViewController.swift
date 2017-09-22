@@ -18,7 +18,11 @@ class InfoTableViewController: UITableViewController {
     @IBOutlet weak var cityLabel: UILabel!
     
     let statusIdentifier = "statusCell"
+    let mainInfoIdentifier = "mainInfoCell"
     
+    let cellsInfo: [String:String] = ["StatusTableViewCell":"statusCell", "MainInfoTableViewCell":"mainInfoCell"]
+    
+    let numberOfRowsAtSection = [1, 6]
     var user: User!
 
     override func viewDidLoad() {
@@ -51,27 +55,48 @@ class InfoTableViewController: UITableViewController {
     }
     
     private func registerCells() {
-        let nib = UINib(nibName: "StatusTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: statusIdentifier)
+        for (fileName, cellIdentifier) in cellsInfo {
+            let nib = UINib(nibName: fileName, bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return cellsInfo.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        var rows = 0
+        
+        if (section < numberOfRowsAtSection.count) {
+            rows = numberOfRowsAtSection[section]
+        }
+        
+        return rows
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: statusIdentifier, for: indexPath) as! StatusTableViewCell
-
+        let cellIdentifiers = Array(cellsInfo.values)
+        let cellIdentifier = cellIdentifiers[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
         let userInfo = user.info
-        cell.prepareCell(with: userInfo.status)
+        
+        switch indexPath.section {
+        case 0:
+            let statusCell = cell as! StatusTableViewCell
+            statusCell.prepareCell(with: userInfo.status)
+            return statusCell
+        case 1:
+            let mainInfoCell = cell as! MainInfoTableViewCell
+            mainInfoCell.prepareCell(with: userInfo.mainInfo, position: indexPath.row)
+            return mainInfoCell
+        default:
+            break
+        }
 
         return cell
     }

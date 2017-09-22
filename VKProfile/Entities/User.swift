@@ -37,4 +37,37 @@ struct User {
 
 struct UserInfo {
     var status: String
+    var mainInfo: MainInfo
+}
+
+enum FamilyStatus: String {
+    case notMarried = "Не женат"
+    case havePartner = "Есть подруга"
+    case betrothed = "Помолвлен"
+    case married = "Женат"
+    case complicated = "Всё сложно"
+    case activelyLooking = "В активном поиске"
+    case inLove = "Влюблён"
+    case inCivilMarriage = "В гражданском браке"
+}
+
+struct MainInfo {
+    var birthday: Date
+    var hometown: String
+    var placeOfStudy: String
+    var familyStatus: FamilyStatus
+    var parents: [String]
+    var brothersAndSisters: [String]
+    
+    func toOrderedDictionary() -> [Int: [String:String]] {
+        let dateFormat = "d MMM yyyy"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let dateString = dateFormatter.string(from: birthday)
+        
+        let parentsString = parents.joined(separator: ",")
+        let brotherAndSistersString = brothersAndSisters.joined(separator: ",")
+        
+        return [0: ["День рождения":dateString], 1: ["Родной город":hometown], 2: ["Место учебы":placeOfStudy], 3: ["Семейное положение":familyStatus.rawValue], 4: ["Родители":parentsString], 5: ["Братья, сестры":brotherAndSistersString]]
+    }
 }

@@ -36,8 +36,19 @@ class UserInfoData {
         let files = Int(arc4random_uniform(maxRandomValue))
         let avatar = profilePhotos[Int(arc4random_uniform(UInt32(profilePhotos.count - 1)))]
         
-        let info = UserInfo(status: "I ❤️ Swift programming")
+        let info = createUserInfo()
         
         return User(name: name, surname: surname, onlineStatus: online, age: age, city: city, friends: friends, followers: [User](), photos: photos, groups: groups, videos: videos, audios: audios, presents: presents, files: files, profileImage: avatar, info: info)
+    }
+    
+    private static func createUserInfo() -> UserInfo {
+        let dateFormat = "dd.MM.yyyy"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let birthday = dateFormatter.date(from: "04.05.1998")!
+        
+        let mainInfo = MainInfo(birthday: birthday, hometown: "Казань", placeOfStudy: "КФУ", familyStatus: .notMarried, parents: ["Мама", "Папа"], brothersAndSisters: ["Брат", "Сестра"])
+        let info = UserInfo(status: "I ❤️ Swift programming", mainInfo: mainInfo)
+        return info
     }
 }
