@@ -58,7 +58,20 @@ class UserInfoData {
         contacts.append(Contact(icon: #imageLiteral(resourceName: "skype"), type: .skype, info: "Skype"))
         contacts.append(Contact(icon: #imageLiteral(resourceName: "vk"), type: .vk, info: "VK"))
         
-        let info = UserInfo(status: "I ❤️ Swift programming", mainInfo: mainInformations, contactInfo: contacts)
+        var professions = [Profession]()
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = 2017
+        
+        if let startDate = Calendar.current.date(from: dateComponents) {
+            dateComponents.year = 2017
+            if let endDate = Calendar.current.date(from: dateComponents) {
+                professions.append(Profession(name: "Android developer", company: "IT-Lyceum", city: "Казань", startDate: startDate, endDate: endDate))
+                professions.append(Profession(name: "iOS developer", company: "ITIS", city: "Казань", startDate: endDate, endDate: nil))
+            }
+        }
+        
+        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions)
         return info
     }
 }

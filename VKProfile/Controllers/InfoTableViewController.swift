@@ -20,10 +20,11 @@ class InfoTableViewController: UITableViewController {
     let cellsInfo = [
         CellInfo(fileName: "StatusTableViewCell", identifier: "statusCell"),
         CellInfo(fileName: "MainInfoTableViewCell", identifier: "mainInfoCell"),
-        CellInfo(fileName: "ContactTableViewCell", identifier: "contactCell")
+        CellInfo(fileName: "ContactTableViewCell", identifier: "contactCell"),
+        CellInfo(fileName: "ProfessionTableViewCell", identifier: "professionCell")
     ]
     
-    let numberOfRowsAtSection = [1, 6, 6]
+    var numberOfRowsAtSection = [Int]()
     var user: User!
 
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class InfoTableViewController: UITableViewController {
         self.title = user.name
         
         fillLabels(with: user)
+        registerNumberOfRowsAtSection()
         registerCells()
     }
 
@@ -61,6 +63,15 @@ class InfoTableViewController: UITableViewController {
             let nib = UINib(nibName: cellInfo.fileName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: cellInfo.identifier)
         }
+    }
+    
+    private func registerNumberOfRowsAtSection() {
+        let userInfo = user.info
+        let statusCount = 1
+        numberOfRowsAtSection.append(statusCount)
+        numberOfRowsAtSection.append(userInfo.main.count)
+        numberOfRowsAtSection.append(userInfo.contacts.count)
+        numberOfRowsAtSection.append(userInfo.professions.count)
     }
 
     // MARK: - Table view data source
@@ -94,17 +105,43 @@ class InfoTableViewController: UITableViewController {
             return statusCell
         case 1:
             let mainInfoCell = cell as! MainInfoTableViewCell
-            mainInfoCell.prepareCell(with: userInfo.mainInfo[row])
+            mainInfoCell.prepareCell(with: userInfo.main[row])
             return mainInfoCell
         case 2:
             let contactCell = cell as! ContactTableViewCell
-            contactCell.prepareCell(with: userInfo.contactInfo[row])
+            contactCell.prepareCell(with: userInfo.contacts[row])
             return contactCell
+        case 3:
+            let professionCell = cell as! ProfessionTableViewCell
+            professionCell.prepareCell(with: userInfo.professions[row])
         default:
             break
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let professionSection = 3
+        let professionHeight: CGFloat = 92
+        let defaultHeight: CGFloat = 44
+        
+        if (indexPath.section == professionSection) {
+            return professionHeight
+        }
+        return defaultHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let contacts = "контакты"
+        let career = "карьера"
+        let education = "обарзование"
+        
+        switch section {
+            case 2: return contacts
+            case 3: return career
+            default: return ""
+        }
     }
 
     /*

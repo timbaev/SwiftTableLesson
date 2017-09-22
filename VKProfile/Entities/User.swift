@@ -37,6 +37,7 @@ struct User {
 
 struct UserInfo {
     var status: String
-    var mainInfo: [MainInfo]
-    var contactInfo: [Contact]
+    var main: [MainInfo]
+    var contacts: [Contact]
+    var professions: [Profession]
 }
