@@ -26,6 +26,11 @@
 		CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */; };
 		CBD104471F752E2900A48BCD /* MainInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104451F752E2900A48BCD /* MainInfoTableViewCell.swift */; };
 		CBD104481F752E2900A48BCD /* MainInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD104461F752E2900A48BCD /* MainInfoTableViewCell.xib */; };
+		CBD1044B1F75633D00A48BCD /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104491F75633D00A48BCD /* ContactTableViewCell.swift */; };
+		CBD1044C1F75633D00A48BCD /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD1044A1F75633D00A48BCD /* ContactTableViewCell.xib */; };
+		CBD1044F1F75653E00A48BCD /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD1044E1F75653E00A48BCD /* ContactInfo.swift */; };
+		CBD104521F7572E400A48BCD /* CellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104511F7572E400A48BCD /* CellInfo.swift */; };
+		CBD104541F7575F000A48BCD /* MainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104531F7575F000A48BCD /* MainInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
 		CBD104451F752E2900A48BCD /* MainInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoTableViewCell.swift; sourceTree = "<group>"; };
 		CBD104461F752E2900A48BCD /* MainInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainInfoTableViewCell.xib; sourceTree = "<group>"; };
+		CBD104491F75633D00A48BCD /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		CBD1044A1F75633D00A48BCD /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		CBD1044E1F75653E00A48BCD /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
+		CBD104511F7572E400A48BCD /* CellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInfo.swift; sourceTree = "<group>"; };
+		CBD104531F7575F000A48BCD /* MainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,8 @@
 		CB5A1A741F66D55500C1971E /* VKProfile */ = {
 			isa = PBXGroup;
 			children = (
+				CBD104501F7572C900A48BCD /* Structs */,
+				CBD1044D1F75652400A48BCD /* UserInfo */,
 				CBD104401F743C0E00A48BCD /* Controllers */,
 				CBD1043F1F743BC400A48BCD /* Cells */,
 				CBD1043D1F743B8000A48BCD /* Entities */,
@@ -124,6 +136,8 @@
 				CBD104421F744D7400A48BCD /* StatusTableViewCell.xib */,
 				CBD104451F752E2900A48BCD /* MainInfoTableViewCell.swift */,
 				CBD104461F752E2900A48BCD /* MainInfoTableViewCell.xib */,
+				CBD104491F75633D00A48BCD /* ContactTableViewCell.swift */,
+				CBD1044A1F75633D00A48BCD /* ContactTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -136,6 +150,23 @@
 				CB42F4D11F73035400871971 /* InfoTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CBD1044D1F75652400A48BCD /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CBD1044E1F75653E00A48BCD /* ContactInfo.swift */,
+				CBD104531F7575F000A48BCD /* MainInfo.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		CBD104501F7572C900A48BCD /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				CBD104511F7572E400A48BCD /* CellInfo.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +232,7 @@
 			files = (
 				CBD104481F752E2900A48BCD /* MainInfoTableViewCell.xib in Resources */,
 				CB5A1A801F66D55500C1971E /* LaunchScreen.storyboard in Resources */,
+				CBD1044C1F75633D00A48BCD /* ContactTableViewCell.xib in Resources */,
 				CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */,
 				CB5A1A7D1F66D55500C1971E /* Assets.xcassets in Resources */,
 				CB5A1A7B1F66D55500C1971E /* Main.storyboard in Resources */,
@@ -219,7 +251,11 @@
 				CB42F4D21F73035400871971 /* InfoTableViewController.swift in Sources */,
 				CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */,
 				CBD104431F744D7400A48BCD /* StatusTableViewCell.swift in Sources */,
+				CBD104541F7575F000A48BCD /* MainInfo.swift in Sources */,
+				CBD1044B1F75633D00A48BCD /* ContactTableViewCell.swift in Sources */,
+				CBD104521F7572E400A48BCD /* CellInfo.swift in Sources */,
 				CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */,
+				CBD1044F1F75653E00A48BCD /* ContactInfo.swift in Sources */,
 				CB5A1A781F66D55500C1971E /* ViewController.swift in Sources */,
 				CB5A1A761F66D55500C1971E /* AppDelegate.swift in Sources */,
 				CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */,

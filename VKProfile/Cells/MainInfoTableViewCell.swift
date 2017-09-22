@@ -18,14 +18,9 @@ class MainInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func prepareCell(with info: MainInfo, position: Int) {
-        let orderedDictionaryInfo = info.toOrderedDictionary()
-        if let dictionaryInfo = orderedDictionaryInfo[position] {
-            let title = Array(dictionaryInfo.keys)[0]
-            
-            titleLabel.text = title
-            infoLabel.text = dictionaryInfo[title]
-        }
+    func prepareCell(with mainInfo: MainInfo) {
+        titleLabel.text = mainInfo.type.rawValue
+        infoLabel.text = mainInfo.info
     }
     
 }

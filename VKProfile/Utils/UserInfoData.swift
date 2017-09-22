@@ -41,14 +41,24 @@ class UserInfoData {
         return User(name: name, surname: surname, onlineStatus: online, age: age, city: city, friends: friends, followers: [User](), photos: photos, groups: groups, videos: videos, audios: audios, presents: presents, files: files, profileImage: avatar, info: info)
     }
     
-    private static func createUserInfo() -> UserInfo {
-        let dateFormat = "dd.MM.yyyy"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        let birthday = dateFormatter.date(from: "04.05.1998")!
+    private static func createUserInfo() -> UserInfo {        
+        var mainInformations = [MainInfo]()
+        mainInformations.append(MainInfo(type: .birthday, info: "4 мая 1998"))
+        mainInformations.append(MainInfo(type: .hometown, info: "Елабуга"))
+        mainInformations.append(MainInfo(type: .placeOfStudy, info: "КФУ"))
+        mainInformations.append(MainInfo(type: .familyStatus, info: FamilyStatus.notMarried.rawValue))
+        mainInformations.append(MainInfo(type: .parents, info: "Мама, Папа"))
+        mainInformations.append(MainInfo(type: .siblings, info: "Брат, Сестра"))
         
-        let mainInfo = MainInfo(birthday: birthday, hometown: "Казань", placeOfStudy: "КФУ", familyStatus: .notMarried, parents: ["Мама", "Папа"], brothersAndSisters: ["Брат", "Сестра"])
-        let info = UserInfo(status: "I ❤️ Swift programming", mainInfo: mainInfo)
+        var contacts = [Contact]()
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "phone"), type: .phone, info: "+7-917-255-55-55"))
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "home"), type: .city, info: "Казань"))
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "twitter"), type: .twitter, info: "Twitter"))
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "instagram"), type: .instagram, info: "Instagram"))
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "skype"), type: .skype, info: "Skype"))
+        contacts.append(Contact(icon: #imageLiteral(resourceName: "vk"), type: .vk, info: "VK"))
+        
+        let info = UserInfo(status: "I ❤️ Swift programming", mainInfo: mainInformations, contactInfo: contacts)
         return info
     }
 }
