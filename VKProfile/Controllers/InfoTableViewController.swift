@@ -153,14 +153,18 @@ class InfoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let contactSection = 2
         let professionSection = 3
         let educationSection = 4
         let presentSection = 5
+        let otherInfoSection = 6
         let professionHeight: CGFloat = 92
         let instituteHeight: CGFloat = 166
-        let schoolHeight: CGFloat = 172
+        let schoolHeight: CGFloat = 156
         let presentHeight: CGFloat = 120
-        let defaultHeight: CGFloat = 44
+        let otherInfoHeight: CGFloat = 44
+        let contactHeight: CGFloat = 44
+        let defaultHeight: CGFloat = 68
         
         if (indexPath.section == professionSection) {
             return professionHeight
@@ -172,6 +176,10 @@ class InfoTableViewController: UITableViewController {
             }
         } else if (indexPath.section == presentSection) {
             return presentHeight
+        } else if (indexPath.section == otherInfoSection) {
+            return otherInfoHeight
+        } else if (indexPath.section == contactSection) {
+            return contactHeight
         }
         return defaultHeight
     }
