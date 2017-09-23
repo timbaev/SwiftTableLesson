@@ -78,7 +78,14 @@ class UserInfoData {
     
         let education = Education(institutes: [institute], schools: [school])
         
-        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions, education: education)
+        var presents = [Present]()
+        for i in 1 ..< 5 {
+            if let presentImage = UIImage(named: "present\(i)") {
+                presents.append(Present(image: presentImage, message: ""))
+            }
+        }
+        
+        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions, education: education, presents: presents)
         return info
     }
     

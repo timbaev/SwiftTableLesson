@@ -22,7 +22,8 @@ class InfoTableViewController: UITableViewController {
         CellInfo(fileName: "MainInfoTableViewCell", identifier: "mainInfoCell"),
         CellInfo(fileName: "ContactTableViewCell", identifier: "contactCell"),
         CellInfo(fileName: "ProfessionTableViewCell", identifier: "professionCell"),
-        CellInfo(fileName: "InstituteTableViewCell", identifier: "instituteCell")
+        CellInfo(fileName: "InstituteTableViewCell", identifier: "instituteCell"),
+        CellInfo(fileName: "PresentTableViewCell", identifier: "presentCell")
     ]
     let schoolCellInfo = CellInfo(fileName: "SchoolTableViewCell", identifier: "schoolCell")
     
@@ -72,13 +73,15 @@ class InfoTableViewController: UITableViewController {
     
     private func registerNumberOfRowsAtSection() {
         let userInfo = user.info
-        let statusCount = 1
-        let educationCount = 2
-        numberOfRowsAtSection.append(statusCount)
+        let userEducation = userInfo.education
+        let statusCountRow = 1
+        let presentsCountRow = 1
+        numberOfRowsAtSection.append(statusCountRow)
         numberOfRowsAtSection.append(userInfo.main.count)
         numberOfRowsAtSection.append(userInfo.contacts.count)
         numberOfRowsAtSection.append(userInfo.professions.count)
-        numberOfRowsAtSection.append(educationCount)
+        numberOfRowsAtSection.append(userEducation.institutes.count + userEducation.schools.count)
+        numberOfRowsAtSection.append(presentsCountRow)
     }
 
     // MARK: - Table view data source
@@ -132,6 +135,10 @@ class InfoTableViewController: UITableViewController {
                 schoolCell.prepareCell(with: userInfo.education.schools[row - instituteCount])
                 return schoolCell
             }
+        case 5:
+            let presentCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! PresentTableViewCell
+            presentCell.prepareCell(with: userInfo.presents)
+            return presentCell
         default:
             break
         }
@@ -142,9 +149,11 @@ class InfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let professionSection = 3
         let educationSection = 4
+        let presentSection = 5
         let professionHeight: CGFloat = 92
         let instituteHeight: CGFloat = 166
         let schoolHeight: CGFloat = 172
+        let presentHeight: CGFloat = 120
         let defaultHeight: CGFloat = 44
         
         if (indexPath.section == professionSection) {
@@ -155,6 +164,8 @@ class InfoTableViewController: UITableViewController {
             } else {
                 return schoolHeight
             }
+        } else if (indexPath.section == presentSection) {
+            return presentHeight
         }
         return defaultHeight
     }
