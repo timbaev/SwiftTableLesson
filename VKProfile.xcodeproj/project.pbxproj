@@ -19,6 +19,10 @@
 		CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */; };
 		CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */; };
 		CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */; };
+		CB8489931F75AB3800D2FEE7 /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489921F75AB3800D2FEE7 /* Institute.swift */; };
+		CB8489951F75AB5A00D2FEE7 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489941F75AB5A00D2FEE7 /* School.swift */; };
+		CB8489981F75ABB800D2FEE7 /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489961F75ABB800D2FEE7 /* SchoolTableViewCell.swift */; };
+		CB8489991F75ABB800D2FEE7 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB8489971F75ABB800D2FEE7 /* SchoolTableViewCell.xib */; };
 		CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AC1F6EA7B10093AA92 /* User.swift */; };
 		CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */; };
 		CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104371F7439A200A48BCD /* DeclinationWord.swift */; };
@@ -34,6 +38,9 @@
 		CBD104571F757AC300A48BCD /* ProfessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104551F757AC300A48BCD /* ProfessionTableViewCell.swift */; };
 		CBD104581F757AC300A48BCD /* ProfessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD104561F757AC300A48BCD /* ProfessionTableViewCell.xib */; };
 		CBD1045A1F757D2300A48BCD /* ProfessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104591F757D2300A48BCD /* ProfessionInfo.swift */; };
+		CBD104611F75A4FA00A48BCD /* InstituteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD1045F1F75A4FA00A48BCD /* InstituteTableViewCell.swift */; };
+		CBD104621F75A4FA00A48BCD /* InstituteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD104601F75A4FA00A48BCD /* InstituteTableViewCell.xib */; };
+		CBD104641F75A66D00A48BCD /* EducationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD104631F75A66D00A48BCD /* EducationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +58,10 @@
 		CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
+		CB8489921F75AB3800D2FEE7 /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
+		CB8489941F75AB5A00D2FEE7 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		CB8489961F75ABB800D2FEE7 /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
+		CB8489971F75ABB800D2FEE7 /* SchoolTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolTableViewCell.xib; sourceTree = "<group>"; };
 		CB9B22AC1F6EA7B10093AA92 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB9B22AE1F6EACEE0093AA92 /* UserInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoData.swift; sourceTree = "<group>"; };
 		CBD104371F7439A200A48BCD /* DeclinationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclinationWord.swift; sourceTree = "<group>"; };
@@ -66,6 +77,9 @@
 		CBD104551F757AC300A48BCD /* ProfessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionTableViewCell.swift; sourceTree = "<group>"; };
 		CBD104561F757AC300A48BCD /* ProfessionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionTableViewCell.xib; sourceTree = "<group>"; };
 		CBD104591F757D2300A48BCD /* ProfessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionInfo.swift; sourceTree = "<group>"; };
+		CBD1045F1F75A4FA00A48BCD /* InstituteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteTableViewCell.swift; sourceTree = "<group>"; };
+		CBD104601F75A4FA00A48BCD /* InstituteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstituteTableViewCell.xib; sourceTree = "<group>"; };
+		CBD104631F75A66D00A48BCD /* EducationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				CB9B22AC1F6EA7B10093AA92 /* User.swift */,
+				CB8489921F75AB3800D2FEE7 /* Institute.swift */,
+				CB8489941F75AB5A00D2FEE7 /* School.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -146,6 +162,10 @@
 				CBD1044A1F75633D00A48BCD /* ContactTableViewCell.xib */,
 				CBD104551F757AC300A48BCD /* ProfessionTableViewCell.swift */,
 				CBD104561F757AC300A48BCD /* ProfessionTableViewCell.xib */,
+				CBD1045F1F75A4FA00A48BCD /* InstituteTableViewCell.swift */,
+				CBD104601F75A4FA00A48BCD /* InstituteTableViewCell.xib */,
+				CB8489961F75ABB800D2FEE7 /* SchoolTableViewCell.swift */,
+				CB8489971F75ABB800D2FEE7 /* SchoolTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +186,7 @@
 				CBD1044E1F75653E00A48BCD /* ContactInfo.swift */,
 				CBD104531F7575F000A48BCD /* MainInfo.swift */,
 				CBD104591F757D2300A48BCD /* ProfessionInfo.swift */,
+				CBD104631F75A66D00A48BCD /* EducationInfo.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -244,8 +265,10 @@
 				CBD1044C1F75633D00A48BCD /* ContactTableViewCell.xib in Resources */,
 				CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */,
 				CB5A1A7D1F66D55500C1971E /* Assets.xcassets in Resources */,
+				CB8489991F75ABB800D2FEE7 /* SchoolTableViewCell.xib in Resources */,
 				CBD104581F757AC300A48BCD /* ProfessionTableViewCell.xib in Resources */,
 				CB5A1A7B1F66D55500C1971E /* Main.storyboard in Resources */,
+				CBD104621F75A4FA00A48BCD /* InstituteTableViewCell.xib in Resources */,
 				CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,17 +285,22 @@
 				CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */,
 				CBD104431F744D7400A48BCD /* StatusTableViewCell.swift in Sources */,
 				CBD104541F7575F000A48BCD /* MainInfo.swift in Sources */,
+				CB8489931F75AB3800D2FEE7 /* Institute.swift in Sources */,
 				CBD1044B1F75633D00A48BCD /* ContactTableViewCell.swift in Sources */,
+				CB8489981F75ABB800D2FEE7 /* SchoolTableViewCell.swift in Sources */,
 				CBD104521F7572E400A48BCD /* CellInfo.swift in Sources */,
+				CBD104611F75A4FA00A48BCD /* InstituteTableViewCell.swift in Sources */,
 				CBD104381F7439A200A48BCD /* DeclinationWord.swift in Sources */,
 				CBD1044F1F75653E00A48BCD /* ContactInfo.swift in Sources */,
 				CB5A1A781F66D55500C1971E /* ViewController.swift in Sources */,
 				CB5A1A761F66D55500C1971E /* AppDelegate.swift in Sources */,
+				CBD104641F75A66D00A48BCD /* EducationInfo.swift in Sources */,
 				CB9B22AF1F6EACEE0093AA92 /* UserInfoData.swift in Sources */,
 				CBD104471F752E2900A48BCD /* MainInfoTableViewCell.swift in Sources */,
 				CB42F4D71F7304ED00871971 /* ColorRGB.swift in Sources */,
 				CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */,
 				CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */,
+				CB8489951F75AB5A00D2FEE7 /* School.swift in Sources */,
 				CB42F4D51F73048900871971 /* ImageRounder.swift in Sources */,
 				CBD1045A1F757D2300A48BCD /* ProfessionInfo.swift in Sources */,
 				CBD104571F757AC300A48BCD /* ProfessionTableViewCell.swift in Sources */,

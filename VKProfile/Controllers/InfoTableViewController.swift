@@ -21,8 +21,10 @@ class InfoTableViewController: UITableViewController {
         CellInfo(fileName: "StatusTableViewCell", identifier: "statusCell"),
         CellInfo(fileName: "MainInfoTableViewCell", identifier: "mainInfoCell"),
         CellInfo(fileName: "ContactTableViewCell", identifier: "contactCell"),
-        CellInfo(fileName: "ProfessionTableViewCell", identifier: "professionCell")
+        CellInfo(fileName: "ProfessionTableViewCell", identifier: "professionCell"),
+        CellInfo(fileName: "InstituteTableViewCell", identifier: "instituteCell")
     ]
+    let schoolCellInfo = CellInfo(fileName: "SchoolTableViewCell", identifier: "schoolCell")
     
     var numberOfRowsAtSection = [Int]()
     var user: User!
@@ -63,15 +65,20 @@ class InfoTableViewController: UITableViewController {
             let nib = UINib(nibName: cellInfo.fileName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: cellInfo.identifier)
         }
+        
+        let nib = UINib(nibName: schoolCellInfo.fileName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: schoolCellInfo.identifier)
     }
     
     private func registerNumberOfRowsAtSection() {
         let userInfo = user.info
         let statusCount = 1
+        let educationCount = 2
         numberOfRowsAtSection.append(statusCount)
         numberOfRowsAtSection.append(userInfo.main.count)
         numberOfRowsAtSection.append(userInfo.contacts.count)
         numberOfRowsAtSection.append(userInfo.professions.count)
+        numberOfRowsAtSection.append(educationCount)
     }
 
     // MARK: - Table view data source
@@ -94,40 +101,60 @@ class InfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath)
         
         let userInfo = user.info
         
         switch section {
         case 0:
-            let statusCell = cell as! StatusTableViewCell
+            let statusCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! StatusTableViewCell
             statusCell.prepareCell(with: userInfo.status)
             return statusCell
         case 1:
-            let mainInfoCell = cell as! MainInfoTableViewCell
+            let mainInfoCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! MainInfoTableViewCell
             mainInfoCell.prepareCell(with: userInfo.main[row])
             return mainInfoCell
         case 2:
-            let contactCell = cell as! ContactTableViewCell
+            let contactCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! ContactTableViewCell
             contactCell.prepareCell(with: userInfo.contacts[row])
             return contactCell
         case 3:
-            let professionCell = cell as! ProfessionTableViewCell
+            let professionCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! ProfessionTableViewCell
             professionCell.prepareCell(with: userInfo.professions[row])
+            return professionCell
+        case 4:
+            let instituteCount = userInfo.education.institutes.count
+            if row < instituteCount {
+                let instituteCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! InstituteTableViewCell
+                instituteCell.prepareCell(with: userInfo.education.institutes[row])
+                return instituteCell
+            } else {
+                let schoolCell = tableView.dequeueReusableCell(withIdentifier: schoolCellInfo.identifier, for:indexPath) as! SchoolTableViewCell
+                schoolCell.prepareCell(with: userInfo.education.schools[row - instituteCount])
+                return schoolCell
+            }
         default:
             break
         }
 
-        return cell
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let professionSection = 3
+        let educationSection = 4
         let professionHeight: CGFloat = 92
+        let instituteHeight: CGFloat = 166
+        let schoolHeight: CGFloat = 172
         let defaultHeight: CGFloat = 44
         
         if (indexPath.section == professionSection) {
             return professionHeight
+        } else if (indexPath.section == educationSection) {
+            if indexPath.row == 0 {
+                return instituteHeight
+            } else {
+                return schoolHeight
+            }
         }
         return defaultHeight
     }
@@ -135,11 +162,12 @@ class InfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let contacts = "контакты"
         let career = "карьера"
-        let education = "обарзование"
+        let education = "образование"
         
         switch section {
             case 2: return contacts
             case 3: return career
+            case 4: return education
             default: return ""
         }
     }

@@ -60,18 +60,31 @@ class UserInfoData {
         
         var professions = [Profession]()
         
-        var dateComponents = DateComponents()
-        dateComponents.year = 2017
-        
-        if let startDate = Calendar.current.date(from: dateComponents) {
-            dateComponents.year = 2017
-            if let endDate = Calendar.current.date(from: dateComponents) {
+        if let startDate = date(with: 2014) {
+            if let endDate = date(with: 2017) {
                 professions.append(Profession(name: "Android developer", company: "IT-Lyceum", city: "Казань", startDate: startDate, endDate: endDate))
                 professions.append(Profession(name: "iOS developer", company: "ITIS", city: "Казань", startDate: endDate, endDate: nil))
             }
         }
         
-        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions)
+        var school: School!
+        if let startDateSchool = date(with: 2013) {
+            if let endDateSchool = date(with: 2016) {
+                school = School(name: "IT-Лицей", city: "Казань", startDate: startDateSchool, endDate: endDateSchool, direction: "Физ-Мат")
+            }
+        }
+        
+        let institute = Institute(name: "КФУ", direction: "Высшая школа информационных технологий и информационных систем", department: .fullTime, typeStudying: .student)
+    
+        let education = Education(institutes: [institute], schools: [school])
+        
+        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions, education: education)
         return info
+    }
+    
+    private static func date(with year: Int) -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        return Calendar.current.date(from: dateComponents)
     }
 }
