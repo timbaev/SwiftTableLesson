@@ -85,7 +85,12 @@ class UserInfoData {
             }
         }
         
-        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions, education: education, presents: presents)
+        var others = [OtherInfo]()
+        others.append(OtherInfo(type: .interestingPages, count: 10))
+        others.append(OtherInfo(type: .notes, count: 10))
+        others.append(OtherInfo(type: .documents, count: 10))
+        
+        let info = UserInfo(status: "I ❤️ Swift programming", main: mainInformations, contacts: contacts, professions: professions, education: education, presents: presents, others: others)
         return info
     }
     

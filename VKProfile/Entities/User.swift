@@ -42,4 +42,5 @@ struct UserInfo {
     var professions: [Profession]
     var education: Education
     var presents: [Present]
+    var others: [OtherInfo]
 }

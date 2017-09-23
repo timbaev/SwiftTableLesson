@@ -23,7 +23,8 @@ class InfoTableViewController: UITableViewController {
         CellInfo(fileName: "ContactTableViewCell", identifier: "contactCell"),
         CellInfo(fileName: "ProfessionTableViewCell", identifier: "professionCell"),
         CellInfo(fileName: "InstituteTableViewCell", identifier: "instituteCell"),
-        CellInfo(fileName: "PresentTableViewCell", identifier: "presentCell")
+        CellInfo(fileName: "PresentTableViewCell", identifier: "presentCell"),
+        CellInfo(fileName: "OtherInfoTableViewCell", identifier: "otherInfoCell")
     ]
     let schoolCellInfo = CellInfo(fileName: "SchoolTableViewCell", identifier: "schoolCell")
     
@@ -82,6 +83,7 @@ class InfoTableViewController: UITableViewController {
         numberOfRowsAtSection.append(userInfo.professions.count)
         numberOfRowsAtSection.append(userEducation.institutes.count + userEducation.schools.count)
         numberOfRowsAtSection.append(presentsCountRow)
+        numberOfRowsAtSection.append(userInfo.others.count)
     }
 
     // MARK: - Table view data source
@@ -139,6 +141,10 @@ class InfoTableViewController: UITableViewController {
             let presentCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! PresentTableViewCell
             presentCell.prepareCell(with: userInfo.presents)
             return presentCell
+        case 6:
+            let otherInfoCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! OtherInfoTableViewCell
+            otherInfoCell.prepareCell(with: userInfo.others[row])
+            return otherInfoCell
         default:
             break
         }
