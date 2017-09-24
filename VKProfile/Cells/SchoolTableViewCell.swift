@@ -10,7 +10,6 @@ import UIKit
 
 class SchoolTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var datePeriodLabel: UILabel!
@@ -29,7 +28,7 @@ class SchoolTableViewCell: UITableViewCell {
             let endYear = calendar.component(.year, from: endDate)
             datePeriodLabel.text = "\(startYear)-\(endYear)"
         } else {
-            datePeriodLabel.text = since + "\(startYear) г."
+            datePeriodLabel.text = since + " \(startYear) г."
         }
     }
     

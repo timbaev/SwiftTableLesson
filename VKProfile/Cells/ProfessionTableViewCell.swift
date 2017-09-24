@@ -29,7 +29,7 @@ class ProfessionTableViewCell: UITableViewCell {
             let endYear = calendar.component(.year, from: endDate)
             datePeriodLabel.text = "\(startYear) - \(endYear)"
         } else {
-            datePeriodLabel.text = since + "\(startYear) г."
+            datePeriodLabel.text = since + " \(startYear) г."
         }
     }
     

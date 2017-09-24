@@ -14,11 +14,6 @@ class StatusTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var changeStatusLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     func prepareCell(with status: String) {
         if (status.isEmpty) {
             statusTextLabel.isHidden = true

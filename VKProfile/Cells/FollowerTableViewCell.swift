@@ -19,7 +19,6 @@ class FollowerTableViewCell: UITableViewCell {
         avatarImageView.roundCorners()
     }
 
-    
     func prepareCell(with user: User) {
         avatarImageView.image = user.profileImage
         nameLabel.text = "\(user.name) \(user.surname)"

@@ -13,10 +13,6 @@ class MainInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     func prepareCell(with mainInfo: MainInfo) {
         titleLabel.text = mainInfo.type.rawValue

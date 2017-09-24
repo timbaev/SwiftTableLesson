@@ -10,7 +10,6 @@ import UIKit
 
 class InstituteTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var directionLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
