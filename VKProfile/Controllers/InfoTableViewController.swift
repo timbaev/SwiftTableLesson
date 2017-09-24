@@ -29,6 +29,7 @@ class InfoTableViewController: UITableViewController {
     let schoolCellInfo = CellInfo(fileName: "SchoolTableViewCell", identifier: "schoolCell")
     
     var numberOfRowsAtSection = [Int]()
+    var myRefreshControl: UIRefreshControl!
     var user: User!
 
     override func viewDidLoad() {
@@ -37,6 +38,12 @@ class InfoTableViewController: UITableViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.title = user.name
         
+        myRefreshControl = UIRefreshControl()
+        myRefreshControl.attributedTitle = NSAttributedString(string: "Pull to random")
+        myRefreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.tableView.addSubview(myRefreshControl)
+        
+        user.info = UserInfoData.generateUserInfo(with: user.age)
         fillLabels(with: user)
         registerNumberOfRowsAtSection()
         registerCells()
@@ -45,6 +52,16 @@ class InfoTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        user.info = UserInfoData.generateUserInfo(with: user.age)
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            self.myRefreshControl.endRefreshing()
+        }
     }
     
     //MARK: - setting UI information

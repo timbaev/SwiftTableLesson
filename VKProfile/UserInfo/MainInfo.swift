@@ -31,4 +31,6 @@ enum FamilyStatus: String {
     case activelyLooking = "В активном поиске"
     case inLove = "Влюблён"
     case inCivilMarriage = "В гражданском браке"
+    
+    static let statuses = [notMarried, havePartner, betrothed, married, complicated, activelyLooking, inLove, inCivilMarriage]
 }
