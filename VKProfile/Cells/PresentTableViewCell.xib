@@ -46,17 +46,12 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-0J-JE7">
-                                <rect key="frame" x="300" y="4" width="15" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                     </scrollView>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="arrowImageView" destination="gVN-0J-JE7" id="HIu-ZR-Unq"/>
                 <outlet property="presentsCountLabel" destination="vA3-by-ZyW" id="sYQ-hJ-v3n"/>
                 <outletCollection property="presentsImageView" destination="AeI-PT-tP1" collectionClass="NSMutableArray" id="pKf-4B-Hdx"/>
                 <outletCollection property="presentsImageView" destination="Sye-xy-Jsk" collectionClass="NSMutableArray" id="3KT-Bg-XLK"/>
@@ -66,7 +61,4 @@
             <point key="canvasLocation" x="25" y="156"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="arrow" width="128" height="128"/>
-    </resources>
 </document>

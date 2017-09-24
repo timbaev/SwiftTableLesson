@@ -12,19 +12,25 @@ class PresentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var presentsCountLabel: UILabel!
     @IBOutlet var presentsImageView: [UIImageView]!
-    @IBOutlet weak var arrowImageView: UIImageView!
+    
+    var accessoryButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        arrowImageView.image = arrowImageView.image!.withRenderingMode(.alwaysTemplate)
-        arrowImageView.tintColor = UIColor.darkGray
+        self.accessoryType = .disclosureIndicator
+        accessoryButton = self.subviews.flatMap { $0 as? UIButton }.first
+    }
+    
+    override func layoutSubviews() {
+        let arrowPosition: CGFloat = 8
+        
+        super.layoutSubviews()
+        accessoryButton.frame.origin.y = arrowPosition
     }
     
     func prepareCell(with presents: [Present]) {
         presentsCountLabel.text = "\(presents.count) \(EndingWord.getCorrectEnding(with: presents.count, and: DeclinationWordDictionary.present))"
-        for presentImageView in presentsImageView {
-            presentImageView.image = presents[0].image
-        }
+        presentsImageView.forEach { $0.image = presents[0].image }
         
         presentsImageView.enumerated().forEach { $0.element.image = presents[$0.offset].image }
     }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let since = "с"
+
 class ProfessionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var companyLabel: UILabel!
@@ -16,8 +18,6 @@ class ProfessionTableViewCell: UITableViewCell {
     @IBOutlet weak var professionLabel: UILabel!
     
     func prepareCell(with profession: Profession) {
-        let since = "с"
-        
         companyLabel.text = profession.company
         cityLabel.text = profession.city
         professionLabel.text = profession.name

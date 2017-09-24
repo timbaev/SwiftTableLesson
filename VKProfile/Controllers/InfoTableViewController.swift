@@ -8,6 +8,18 @@
 
 import UIKit
 
+let professionHeight: CGFloat = 92
+let instituteHeight: CGFloat = 166
+let schoolHeight: CGFloat = 156
+let presentHeight: CGFloat = 120
+let otherInfoHeight: CGFloat = 44
+let contactHeight: CGFloat = 44
+let defaultHeight: CGFloat = 68
+
+let contacts = "контакты"
+let career = "карьера"
+let education = "образование"
+
 class InfoTableViewController: UITableViewController {
     
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -29,15 +41,12 @@ class InfoTableViewController: UITableViewController {
     let schoolCellInfo = CellInfo(fileName: "SchoolTableViewCell", identifier: "schoolCell")
     
     var numberOfRowsAtSection = [Int]()
-    var myRefreshControl: UIRefreshControl!
     var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "more"), style: .plain, target: nil, action: nil)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.title = user.name
         
+        prepareNavBar()
         createPullToRefresh()
         user.info = UserInfoData.generateUserInfo(with: user.age)
         fillLabels(with: user)
@@ -47,22 +56,34 @@ class InfoTableViewController: UITableViewController {
     
     //MARK: - setting UI information
     
+    private func prepareNavBar() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "more"), style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.title = user.name
+    }
+    
     private func createPullToRefresh() {
         let refreshText = "Pull to random"
-        myRefreshControl = UIRefreshControl()
-        myRefreshControl.attributedTitle = NSAttributedString(string: refreshText)
-        myRefreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        self.tableView.addSubview(myRefreshControl)
+        
+        self.refreshControl = UIRefreshControl()
+        if let refreshControl = self.refreshControl {
+            refreshControl.attributedTitle = NSAttributedString(string: refreshText)
+            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+            self.tableView.addSubview(refreshControl)
+        }
     }
     
     @objc func refresh(_ sender: Any) {
         let delay: TimeInterval = 3
         user.info = UserInfoData.generateUserInfo(with: user.age)
-        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) {[weak self] (timer) in
+            
+            guard let strongSelf = self else { return }
+            
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                strongSelf.tableView.reloadData()
+                strongSelf.refreshControl?.endRefreshing()
             }
-            self.myRefreshControl.endRefreshing()
         }
     }
     
@@ -174,13 +195,6 @@ class InfoTableViewController: UITableViewController {
         let educationSection = 4
         let presentSection = 5
         let otherInfoSection = 6
-        let professionHeight: CGFloat = 92
-        let instituteHeight: CGFloat = 166
-        let schoolHeight: CGFloat = 156
-        let presentHeight: CGFloat = 120
-        let otherInfoHeight: CGFloat = 44
-        let contactHeight: CGFloat = 44
-        let defaultHeight: CGFloat = 68
         
         if (indexPath.section == professionSection) {
             return professionHeight
@@ -201,10 +215,6 @@ class InfoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let contacts = "контакты"
-        let career = "карьера"
-        let education = "образование"
-        
         switch section {
             case 2: return contacts
             case 3: return career
